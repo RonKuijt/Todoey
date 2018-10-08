@@ -16,41 +16,19 @@ class TodoListViewController: UITableViewController {
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let newItem = Item()
-        newItem.title = "Find Mike"
-        itemArray.append(newItem)
-        
-        let newItem2 = Item()
-        newItem2.title = "Buy Eggos"
-        itemArray.append(newItem2)
-
-        let newItem3 = Item()
-        newItem3.title = "Kiss Ron"
-        itemArray.append(newItem3)
-
-        let newItem4 = Item()
-        newItem4.title = "Do important things"
-        itemArray.append(newItem4)
-
-//        if let items = defaults.array (forKey: "TodoListArray") as? [Item] {
-//
-//        itemArray = items
-//
-//    }
-        
-        
+        loadItems()
     }
+    
+    
         //MARK - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -62,17 +40,10 @@ class TodoListViewController: UITableViewController {
         //i.p.v. cell.textLabel?.text = itemArray[indexPath.row].title
         cell.textLabel?.text = item.title
         
-        
         //Ternary operator =>
         // value = condition ? valueIfTrue : valueIfFalse
         
         cell.accessoryType = item.done ? .checkmark : .none
-        
-//        if item.done == true {
-//            cell.accessoryType = .checkmark
-//        } else {
-//            cell.accessoryType = .none
-//        }
         
         return cell
     }
@@ -137,5 +108,16 @@ class TodoListViewController: UITableViewController {
         
         }
     
+    func loadItems() {
+        
+        if let data = try? Data(contentsOf: dataFilePath!){
+            let decoder = PropertyListDecoder()
+            do {
+            itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print ("Error decoding item /(error)")
+            }
+        }
+    }
 }
 
