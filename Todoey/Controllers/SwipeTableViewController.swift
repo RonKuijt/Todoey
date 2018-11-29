@@ -9,17 +9,14 @@
 import UIKit
 import SwipeCellKit
 
-
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
             tableView.rowHeight = 80.0
-        
     }
     
     //TableViewDatasource Methods
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell
@@ -34,12 +31,9 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
                     
                     print ("Delete cell")
                     self.updateModel(at: indexPath)
-                    
-                    
                 }
                 // customize the action appearance
                 deleteAction.image = UIImage(named: "delete-icon")
-                
                 return [deleteAction]
             }
             
@@ -51,9 +45,6 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     
     func updateModel (at indexPath: IndexPath){
         //Update our data model
-        
     }
-    
-    
         }
 
