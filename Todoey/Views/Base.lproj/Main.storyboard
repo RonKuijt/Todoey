@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Todoey-->
+        <!--Doet-It-->
         <scene sceneID="dNC-Oz-OBX">
             <objects>
                 <tableViewController id="0dF-jC-JqH" customClass="CategoryViewController" customModule="Todoey" sceneMemberID="viewController">
@@ -32,9 +32,8 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Todoey" id="DM6-ZQ-e4y">
+                    <navigationItem key="navigationItem" title="Doet-It" id="DM6-ZQ-e4y">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xcE-q6-SPT">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="0dF-jC-JqH" id="yvL-nu-j4K"/>
                             </connections>
@@ -87,12 +86,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="VJj-C9-cc6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="05f-Ks-wsG">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="YW4-oB-2v5" id="U0H-te-9Mo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Sqb-tW-Zxx" id="h8a-GW-m2U"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90g-NU-Ie0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,8 +104,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hrx-gM-BZJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pou-g1-z7B">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="pou-g1-z7B">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
