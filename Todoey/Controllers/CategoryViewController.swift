@@ -32,7 +32,7 @@ class CategoryViewController: SwipeTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        cell.textLabel?.text = categories?[indexPath.row].name ?? "No categories added yet"
+        cell.textLabel?.text = categories?[indexPath.row].name ?? "Nog geen catergorieen ingevoerd."
         cell.backgroundColor = UIColor(hexString: categories?[indexPath.row].color ?? "1D9BF6")
         cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
         return cell
@@ -58,9 +58,9 @@ class CategoryViewController: SwipeTableViewController {
     
         var textField = UITextField()
     
-        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Nieuwe catergorie", message: "", preferredStyle: .alert)
     
-        let action = UIAlertAction(title: "Add Category", style: .default){ (action) in
+        let action = UIAlertAction(title: "Toevoegen", style: .default){ (action) in
         
         let newCategory = Category()
         
@@ -71,7 +71,7 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     alert.addTextField { (alertTexfield) in
-        alertTexfield.placeholder = "Create New Category"
+        alertTexfield.placeholder = "Nieuwe catergorie"
         textField = alertTexfield
     }
     
